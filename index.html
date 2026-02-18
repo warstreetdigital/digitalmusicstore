@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WarStreet Studios — Music Licensing & Custom Music Store</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= GLOBAL ================= */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+    font-family:'Roboto',sans-serif;
+    background:linear-gradient(180deg,#0b0b0f,#111118);
+    color:#f5f5f5;
+    line-height:1.6;
+}
+a{text-decoration:none;color:inherit;}
+button{cursor:pointer;border:none;font-family:inherit;}
+
+/* ================= HERO ================= */
+.hero{
+    text-align:center;
+    padding:110px 20px;
+    background:radial-gradient(circle at center,#1a1a24 0%,#0b0b0f 70%);
+}
+.hero h1{
+    font-family:'Montserrat',sans-serif;
+    font-size:3.3rem;
+    font-weight:800;
+    letter-spacing:2px;
+    background:linear-gradient(90deg,#d4af37,#f8e27a);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+.hero p{
+    margin-top:18px;
+    font-size:1.2rem;
+    color:#cccccc;
+}
+.hero .cta{
+    margin-top:35px;
+    display:inline-block;
+    padding:15px 38px;
+    background:linear-gradient(90deg,#d4af37,#f8e27a);
+    color:#000;
+    font-weight:700;
+    border-radius:40px;
+    transition:0.3s;
+}
+.hero .cta:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 35px rgba(212,175,55,0.4);
+}
+
+/* ================= FLOATING SOCIALS ================= */
+.socials{
+    position:fixed;
+    right:25px;
+    top:50%;
+    transform:translateY(-50%);
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    z-index:1000;
+}
+.socials a{
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    background:linear-gradient(145deg,#1c1c25,#0e0e14);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 0 15px rgba(212,175,55,0.25);
+    transition:0.3s;
+}
+.socials a:hover{
+    transform:scale(1.15);
+    box-shadow:0 0 30px rgba(212,175,55,0.6);
+}
+.socials img{
+    width:26px;
+    filter:brightness(0) invert(1);
+}
+
+/* ================= SECTION ================= */
+.section{
+    padding:90px 20px;
+}
+.section h2{
+    font-family:'Montserrat',sans-serif;
+    font-size:2.2rem;
+    margin-bottom:45px;
+    color:#d4af37;
+}
+
+/* ================= CARD ================= */
+.card{
+    background:linear-gradient(145deg,#14141d,#0e0e14);
+    border:1px solid rgba(212,175,55,0.35);
+    border-radius:20px;
+    padding:35px;
+    min-width:300px;
+    transition:0.4s;
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.7),
+        inset 0 0 18px rgba(212,175,55,0.05);
+}
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:
+        0 25px 50px rgba(0,0,0,0.85),
+        0 0 30px rgba(212,175,55,0.35);
+}
+.card h3{
+    font-family:'Montserrat',sans-serif;
+    font-size:1.35rem;
+    font-weight:700;
+    margin-bottom:25px;
+    color:#f8e27a;
+}
+
+/* ================= TABLE ================= */
+.card table{
+    width:100%;
+    border-collapse:collapse;
+    margin-bottom:20px;
+}
+.card td{
+    padding:9px 0;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    font-size:0.95rem;
+}
+.card td:first-child{font-weight:600;}
+.card td:nth-child(2){
+    color:#d4af37;
+    font-weight:700;
+}
+
+/* ================= AUDIO ================= */
+audio{
+    width:100%;
+    margin:18px 0;
+    background:#0e0e14;
+    border-radius:30px;
+}
+
+/* ================= BUTTON ================= */
+.card button{
+    margin-top:12px;
+    padding:12px 26px;
+    border-radius:30px;
+    background:linear-gradient(90deg,#d4af37,#f8e27a);
+    font-weight:700;
+    color:#000;
+    transition:0.3s;
+}
+.card button:hover{transform:scale(1.07);}
+
+/* ================= LAYOUT ================= */
+.horizontal-rail{
+    display:flex;
+    overflow-x:auto;
+    gap:28px;
+}
+.horizontal-rail::-webkit-scrollbar{display:none;}
+.vertical-stack{
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+}
+
+/* ================= SOCIAL PROMO ================= */
+.social-promo{
+    text-align:center;
+    margin:90px 20px;
+}
+.social-promo .card{
+    max-width:650px;
+    margin:auto;
+}
+.social-promo-icons{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    margin-top:25px;
+}
+.social-promo-icons img{
+    width:35px;
+    filter:brightness(0) invert(1);
+    transition:0.3s;
+}
+.social-promo-icons img:hover{transform:scale(1.25);}
+
+/* ================= FOOTER ================= */
+footer{
+    text-align:center;
+    padding:35px;
+    border-top:1px solid rgba(212,175,55,0.3);
+    background:#0a0a10;
+    color:#999;
+}
+
+</style>
+</head>
+<body>
+
+<section class="hero">
+    <h1>WarStreet Studios</h1>
+    <p>Music licensing and custom music for businesses, brands, sports clubs, weddings, events, and more.</p>
+    <a href="#licensing" class="cta">Browse & License Music</a>
+</section>
+
+<div class="socials">
+    <a href="https://www.tiktok.com/@warstreet_studios.zw" target="_blank">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/tiktok.png">
+    </a>
+    <a href="https://youtube.com/@warstreet_studios" target="_blank">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/youtube-play.png">
+    </a>
+    <a href="https://www.instagram.com/warstreet_studios" target="_blank">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png">
+    </a>
+</div>
+
+<!-- ================= 1️⃣ Licensing / Ready-Made Tracks ================= -->
+<section class="section" id="licensing">
+<h2>1️⃣ Licensing / Ready-Made Tracks</h2>
+<div class="horizontal-rail">
+
+<div class="card">
+<h3>Short Commercial / Social Media Track</h3>
+<table>
+<tr><td>Starter</td><td>$50</td><td>Basic social post, small business use</td></tr>
+<tr><td>Professional</td><td>$75</td><td>Medium promo, sports clip</td></tr>
+<tr><td>Premium</td><td>$100</td><td>Extended business branding track</td></tr>
+</table>
+<audio controls><source src="audio/sample1.mp3" type="audio/mpeg"></audio>
+<button onclick="orderNow('Short Commercial / Social Media Track','Selected Tier')">License Now</button>
+</div>
+
+<div class="card">
+<h3>Medium Promo / Sports Track</h3>
+<table>
+<tr><td>Starter</td><td>$60</td><td>Short clip, simple production</td></tr>
+<tr><td>Professional</td><td>$90</td><td>Full sports or event clip</td></tr>
+<tr><td>Premium</td><td>$120</td><td>Full event coverage, multiple usage</td></tr>
+</table>
+<audio controls><source src="audio/sample2.mp3" type="audio/mpeg"></audio>
+<button onclick="orderNow('Medium Promo / Sports Track','Selected Tier')">License Now</button>
+</div>
+
+<div class="card">
+<h3>Extended Event / Business Branding Track</h3>
+<table>
+<tr><td>Starter</td><td>$70</td><td>Short corporate / event track</td></tr>
+<tr><td>Professional</td><td>$100</td><td>Extended version for branding</td></tr>
+<tr><td>Premium</td><td>$120</td><td>Full production, multi-use</td></tr>
+</table>
+<audio controls><source src="audio/sample3.mp3" type="audio/mpeg"></audio>
+<button onclick="orderNow('Extended Event / Business Branding Track','Selected Tier')">License Now</button>
+</div>
+
+</div>
+</section>
+
+<!-- ================= 2️⃣ Custom Music Orders ================= -->
+<section class="section">
+<h2>2️⃣ Custom Music Orders</h2>
+<div class="vertical-stack">
+
+<div class="card">
+<h3>Event Songs (corporate events, school events, concerts)</h3>
+<table>
+<tr><td>Starter</td><td>$50</td><td>Corporate, school, concert short clip</td></tr>
+<tr><td>Professional</td><td>$125</td><td>Full production for mid-size event</td></tr>
+<tr><td>Premium</td><td>$200</td><td>Full event coverage, premium quality</td></tr>
+</table>
+<button onclick="orderNow('Event Songs','Selected Tier')">Start Order</button>
+</div>
+
+<div class="card">
+<h3>Wedding & Roora Songs</h3>
+<table>
+<tr><td>Starter</td><td>$50</td><td>Simple 30–60s couple song</td></tr>
+<tr><td>Professional</td><td>$130</td><td>Moderate customization</td></tr>
+<tr><td>Premium</td><td>$200</td><td>Full custom wedding/roora production</td></tr>
+</table>
+<button onclick="orderNow('Wedding & Roora Songs','Selected Tier')">Start Order</button>
+</div>
+
+<div class="card">
+<h3>Personalized Songs (birthday, apology, dedications)</h3>
+<table>
+<tr><td>Starter</td><td>$50</td><td>Birthday, apology, dedication short clip</td></tr>
+<tr><td>Professional</td><td>$125</td><td>Longer, moderate customization</td></tr>
+<tr><td>Premium</td><td>$200</td><td>Full production, multiple edits</td></tr>
+</table>
+<button onclick="orderNow('Personalized Songs','Selected Tier')">Start Order</button>
+</div>
+
+</div>
+</section>
+
+<!-- ================= 3️⃣ Jingles ================= -->
+<section class="section">
+<h2>3️⃣ Jingles / Commercial Branding Songs</h2>
+<div class="vertical-stack">
+
+<div class="card">
+<h3>Short jingle (store promos)</h3>
+<table>
+<tr><td>Starter</td><td>$40</td><td>Social media or short ad clip</td></tr>
+<tr><td>Professional</td><td>$70</td><td>Medium-length radio/online campaign</td></tr>
+<tr><td>Premium</td><td>$100</td><td>Full commercial multi-platform jingle</td></tr>
+</table>
+<button onclick="orderNow('Short Jingle','Selected Tier')">Start Order</button>
+</div>
+
+<div class="card">
+<h3>Medium jingle (radio/online campaigns)</h3>
+<table>
+<tr><td>Starter</td><td>$40</td><td>Short brand promo</td></tr>
+<tr><td>Professional</td><td>$70</td><td>Extended promo</td></tr>
+<tr><td>Premium</td><td>$100</td><td>Full branding campaign</td></tr>
+</table>
+<button onclick="orderNow('Medium Jingle','Selected Tier')">Start Order</button>
+</div>
+
+</div>
+</section>
+
+<!-- ================= 4️⃣ Sports & Club Anthems ================= -->
+<section class="section">
+<h2>4️⃣ Sports & Club Anthems</h2>
+<div class="vertical-stack">
+
+<div class="card">
+<h3>School / Club Anthem</h3>
+<table>
+<tr><td>Starter</td><td>$150</td><td>Basic anthem, instrumental, simple vocals</td></tr>
+<tr><td>Professional</td><td>$350</td><td>Full anthem with professional arrangement, choir/choir effects, optional branding</td></tr>
+<tr><td>Premium</td><td>$800+</td><td>Fully customized anthem, full production, instrumental + vocals, ready for stadium or broadcast</td></tr>
+</table>
+<button onclick="orderNow('School / Club Anthem','Selected Tier')">Start Order</button>
+</div>
+
+</div>
+</section>
+
+<!-- ================= 5️⃣ Event & Special Day Songs ================= -->
+<section class="section">
+<h2>5️⃣ Event & Special Day Songs</h2>
+<div class="vertical-stack">
+
+<div class="card">
+<h3>Major Event Song</h3>
+<table>
+<tr><td>Starter</td><td>$150</td><td>Simple 30–60 sec song</td></tr>
+<tr><td>Professional</td><td>$350</td><td>Fully arranged song with vocals/instruments for event</td></tr>
+<tr><td>Premium</td><td>$700+</td><td>Complete high-quality production, multiple versions, ready for live or broadcast</td></tr>
+</table>
+<audio controls><source src="audio/event_sample.mp3" type="audio/mpeg"></audio>
+<button onclick="orderNow('Major Event Song','Selected Tier')">Start Order</button>
+</div>
+
+</div>
+</section>
+
+<!-- ================= 6️⃣ Corporate & Business Music ================= -->
+<section class="section">
+<h2>6️⃣ Corporate & Business Music</h2>
+<div class="vertical-stack">
+
+<div class="card">
+<h3>Branding / Background Music</h3>
+<table>
+<tr><td>Starter</td><td>$200</td><td>Short brand theme, 15–30 sec commercial track</td></tr>
+<tr><td>Professional</td><td>$500</td><td>1–2 min fully arranged track, instrumental + vocals</td></tr>
+<tr><td>Premium</td><td>$1,200+</td><td>Full 3–5 min corporate theme, multiple cuts, ready for any campaign</td></tr>
+</table>
+<button onclick="orderNow('Branding / Background Music','Selected Tier')">Start Order</button>
+</div>
+
+</div>
+</section>
+
+<section class="social-promo">
+<div class="card">
+<h3>For more samples, visit our social media platforms</h3>
+<div class="social-promo-icons">
+<a href="https://www.tiktok.com/@warstreet_studios.zw" target="_blank"><img src="https://img.icons8.com/ios-filled/50/ffffff/tiktok.png"></a>
+<a href="https://youtube.com/@warstreet_studios" target="_blank"><img src="https://img.icons8.com/ios-filled/50/ffffff/youtube-play.png"></a>
+<a href="https://www.instagram.com/warstreet_studios" target="_blank"><img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png"></a>
+</div>
+</div>
+</section>
+
+<footer>
+Powered by WarStreet Experience Model
+</footer>
+
+<script>
+function orderNow(packageName,tier){
+let phone="263779388560";
+let message=`Hello WarStreet Studios, I would like to order the ${packageName}. Please assist me with next steps.`;
+let url=`https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+window.open(url,'_blank');
+}
+</script>
+
+</body>
+</html>
